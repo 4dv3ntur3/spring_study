@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd 
+ 		http://www.springframework.org/schema/context 
+ 		http://www.springframework.org/schema/context/spring-context.xsd">
+	<!--context/spring-context.xsd 였음... 앞에 beans로 복붙돼있는걸 못찾아서 한참 헤맴 -->
+
+	<!-- 이걸 사용하기 위해서 annotation config를 이용하기 위해서 namespace, schema 추가 필요 -->
+	<context:annotation-config />
+	
+	
+	<bean id="wordDao1" class="com.word.dao.WordDao">
+		<qualifier value="usedDao"> </qualifier>
+	</bean>
+	<bean id="wordDao2" class="com.word.dao.WordDao" />
+	<bean id="wordDao3" class="com.word.dao.WordDao" />
+	
+	<bean id="registerService" class="com.word.service.WordRegisterService"/>
+	<bean id="searchService" class="com.word.service.WordSearchService"/>
+	
+</beans>
